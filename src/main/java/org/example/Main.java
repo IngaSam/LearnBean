@@ -6,15 +6,13 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext("org.example");
-   /*     AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(TaskConfiguration.class); //через Configuration*/
-        Task mainTask = (Task)context.getBean("main-task");
- //       Task notMainTask = (Task) context.getBean("not-main-task");
-/*        System.out.println(task);
-        System.out.println(task2);
-        System.out.println(task==task2);*/
 
-        TaskManager taskManager = (TaskManager)context.getBean("taskManager");
+        Task task1 = context.getBean(Task.class);
+        Task task2 = context.getBean(Task.class);
+
+        System.out.println(task1==task2);
+
+        TaskManager taskManager = context.getBean(TaskManager.class);
         taskManager.printTask();
        }
 }
