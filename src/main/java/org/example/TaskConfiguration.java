@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class TaskConfiguration {
     @Bean("main-task")
-    public Task task(TaskManager taskManager)
+    public Task task()
     {
-        return new Task(taskManager);
+        return new Task();
 
     }
 

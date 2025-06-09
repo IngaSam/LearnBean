@@ -9,7 +9,7 @@ public class Main {
    /*     AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(TaskConfiguration.class); //через Configuration*/
         Task mainTask = (Task)context.getBean("main-task");
-        Task notMainTask = (Task) context.getBean("not-main-task");
+ //       Task notMainTask = (Task) context.getBean("not-main-task");
 /*        System.out.println(task);
         System.out.println(task2);
         System.out.println(task==task2);*/
