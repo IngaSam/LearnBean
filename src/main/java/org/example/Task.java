@@ -9,12 +9,9 @@ public class Task {
     private final Long duration;
     private TaskManager taskManager;
 
-    public Task() {
+    public Task(TaskManager taskManager) {
         this.name = "task";
         this.duration = 60L;
-    }
-    @Autowired
-    public void setTaskManager(TaskManager taskManager) {
         this.taskManager = taskManager;
     }
 
