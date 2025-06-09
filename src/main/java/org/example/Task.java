@@ -6,9 +6,12 @@ import org.springframework.stereotype.Component;
 public class Task {
     private final String name;
     private final Long duration;
-    public Task() {
+    private TaskManager taskManager;
+
+    public Task(TaskManager taskManager) {
         this.name = "task";
         this.duration = 60L;
+        this.taskManager = taskManager;
     }
 
     public String getName() {

@@ -9,14 +9,17 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class TaskConfiguration {
     @Bean("main-task")
-    @Primary
-    public Task task(){
-        return new Task();
+    public Task task(TaskManager taskManager)
+    {
+        return new Task(taskManager);
+
     }
-    @Bean("not-main-task")
+
+
+/*    @Bean("not-main-task")
     public Task task2(){
         return new Task();
-    }
+    }*/
     @Bean
     public TaskManager taskManager(
            Task  task
