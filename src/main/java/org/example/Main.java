@@ -14,5 +14,8 @@ public class Main {
 
         TaskManager taskManager = context.getBean(TaskManager.class);
         taskManager.printTask();
+
+        TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
+        taskExecutor.executeTask();
        }
 }
