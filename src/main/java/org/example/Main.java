@@ -2,6 +2,8 @@ package org.example;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Properties;
+
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
@@ -12,11 +14,14 @@ public class Main {
 
         System.out.println(task1==task2);
 
-        TaskManager taskManager = context.getBean(TaskManager.class);
+        var properties = context.getBean(TaskProperties.class);
+        System.out.println(properties);
+
+        /*TaskManager taskManager = context.getBean(TaskManager.class);
         taskManager.printTask();
 
         TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
-        taskExecutor.executeTask();
+        taskExecutor.executeTask();*/
 
         context.close();
        }

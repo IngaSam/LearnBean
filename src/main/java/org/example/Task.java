@@ -2,20 +2,23 @@ package org.example;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component("main-task")
-//@Scope("prototype")
 public class Task {
     private final String name;
     private final Integer duration;
 
-    public Task() {
-        this.name = "task";
-        this.duration = 60;
+    public Task(
+            @Value("${task.name}")String name,
+            @Value("${task.duration}")Integer duration
+    ) {
+        this.name = name;
+        this.duration = duration;
         System.out.println("call task constructor");
     }
     //Метод, который отрабатывает после создания бина, но перед тем как его положат в ApplicationContext или отдадут вызывающему коду
