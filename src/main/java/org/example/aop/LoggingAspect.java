@@ -35,8 +35,8 @@ public class LoggingAspect {
     @Around("execution(* org.example.TaskManager.*(..))")
     public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("До метода ");
-        Object result = proceedingJoinPoint.proceed();
+        Integer result =(Integer) proceedingJoinPoint.proceed();
         System.out.println("После метода ");
-        return result;
+        return result/2;
     }
 }
