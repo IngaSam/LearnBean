@@ -2,8 +2,6 @@ package org.example;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,12 +21,11 @@ public class TaskManager {
        // System.out.println("call taskManager destroy");
     }
 
-    public void printTask(){
-      if (task == null) {
-          System.out.println("No current task");
-      } else {
+    public Integer printTask(){
+
           System.out.println("Current task: " + task.toString());
-      }
+          return task.getDuration();
+
     }
 
 }
