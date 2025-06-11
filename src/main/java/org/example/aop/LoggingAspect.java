@@ -32,11 +32,18 @@ public class LoggingAspect {
     public void logAfter(JoinPoint joinPoint) {
         System.out.println("После выполнения метода: " + joinPoint.getSignature().getName());
     }*/
-    @Around("execution(* org.example.TaskManager.*(..))")
+/*    @Around("execution(* org.example.TaskManager.*(..))")
     public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("До метода ");
         Integer result =(Integer) proceedingJoinPoint.proceed();
         System.out.println("После метода ");
         return result/2;
+    }*/
+    @Before("@annotation(loggable)")
+    public void log(
+            JoinPoint joinPoint,
+            Loggable loggable
+    ) {
+        System.out.println("Logging " + joinPoint.getSignature().getName() + " " + joinPoint.getArgs());
     }
 }

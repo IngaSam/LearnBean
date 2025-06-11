@@ -10,11 +10,10 @@ public class Main {
                 new AnnotationConfigApplicationContext("org.example");
 
         TaskManager taskManager = context.getBean(TaskManager.class);
+        taskManager.printTask();
 
-        var result = taskManager.printTask();
-        System.out.println("результат = " + result);
-
-
+        TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
+        taskExecutor.executeTask();
 
         context.close();
        }

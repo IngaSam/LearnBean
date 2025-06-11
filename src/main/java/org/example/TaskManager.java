@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import org.example.aop.Loggable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,7 +21,7 @@ public class TaskManager {
     public void destroy() {
        // System.out.println("call taskManager destroy");
     }
-
+    @Loggable
     public Integer printTask(){
 
           System.out.println("Current task: " + task.toString());
