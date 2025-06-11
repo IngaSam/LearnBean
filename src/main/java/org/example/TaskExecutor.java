@@ -9,7 +9,7 @@ public class TaskExecutor {
     public TaskExecutor(Task task) {
         this.task = task;
     }
-    @Loggable
+    @Loggable("ERROR")
     public void executeTask() {
         System.out.printf("Executing task with name %s, total second %s %n",
                 task.getName(),
