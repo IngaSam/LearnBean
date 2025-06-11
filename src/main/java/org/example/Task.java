@@ -19,18 +19,18 @@ public class Task {
     ) {
         this.name = name;
         this.duration = duration;
-        System.out.println("call task constructor");
+       // System.out.println("call task constructor");
     }
     //Метод, который отрабатывает после создания бина, но перед тем как его положат в ApplicationContext или отдадут вызывающему коду
     @PostConstruct
     public void postConstruct(){
-        System.out.println("call task post construct");
+       // System.out.println("call task post construct");
     }
 
     //Метод перед уничтожением Бина
     @PreDestroy
     public void preDestroy(){
-        System.out.println("call task pre destroy");
+       // System.out.println("call task pre destroy");
     }
 
     public String getName() {

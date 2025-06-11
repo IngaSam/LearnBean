@@ -12,15 +12,15 @@ public class TaskManager {
 
     public TaskManager(Task task) {
       this.task = task;
-        System.out.println("call taskManager constructor");
+       // System.out.println("call taskManager constructor");
     }
     @PostConstruct
     public void init() {
-        System.out.println("call taskManager init");
+       // System.out.println("call taskManager init");
     }
     @PreDestroy
     public void destroy() {
-        System.out.println("call taskManager destroy");
+       // System.out.println("call taskManager destroy");
     }
 
     public void printTask(){
