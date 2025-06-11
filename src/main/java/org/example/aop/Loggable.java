@@ -5,6 +5,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Loggable{
         String value() default "INFO";
+        int times() default 1;
 }
 
 

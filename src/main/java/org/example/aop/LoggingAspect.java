@@ -44,8 +44,10 @@ public class LoggingAspect {
             JoinPoint joinPoint,
             Loggable loggable
     ) {
-        System.out.printf("Logging %s: before method = %s \n" , loggable.value(),  joinPoint.getSignature().getName()
-        );
+        for (int i=0; i< loggable.times(); i++) {
+            System.out.printf("Logging %s: before method = %s \n", loggable.value(), joinPoint.getSignature().getName()
+            );
+        }
     }
 
 }

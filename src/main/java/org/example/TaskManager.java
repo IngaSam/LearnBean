@@ -21,7 +21,7 @@ public class TaskManager {
     public void destroy() {
        // System.out.println("call taskManager destroy");
     }
-    @Loggable
+    @Loggable(times=3)
     public Integer printTask(){
 
           System.out.println("Current task: " + task.toString());
