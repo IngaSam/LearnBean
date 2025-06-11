@@ -1,10 +1,7 @@
 package org.example.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -29,5 +26,9 @@ public class LoggingAspect {
             throwing = "exc")
     public void afterAfterThrowing(JoinPoint joinPoint, Exception exc) {
             System.out.println("После исключения: " + exc.getMessage());
+    }
+    @After("execution(* org.example.TaskManager.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+        System.out.println("После выполнения метода: " + joinPoint.getSignature().getName());
     }
 }
