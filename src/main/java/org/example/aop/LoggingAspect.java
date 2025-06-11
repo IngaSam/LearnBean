@@ -1,13 +1,14 @@
 package org.example.aop;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
 public class LoggingAspect {
-    @Before("execution(* org.example.TaskManager.*(..))")
+ /*   @Before("execution(* org.example.TaskManager.*(..))")
     public void logBefore(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("Перед вызовом метода: " + methodName);
@@ -30,5 +31,12 @@ public class LoggingAspect {
     @After("execution(* org.example.TaskManager.*(..))")
     public void logAfter(JoinPoint joinPoint) {
         System.out.println("После выполнения метода: " + joinPoint.getSignature().getName());
+    }*/
+    @Around("execution(* org.example.TaskManager.*(..))")
+    public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("До метода ");
+        Object result = proceedingJoinPoint.proceed();
+        System.out.println("После метода ");
+        return result;
     }
 }
